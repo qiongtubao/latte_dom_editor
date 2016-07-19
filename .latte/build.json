@@ -1,0 +1,34 @@
+{
+	"keys": {
+
+	},
+	"build": [
+		{
+			"command": "three",
+			"types": "js",
+			"files": {
+				"./lib": "latte_dom"
+			},
+			"files_modules": ["js"],
+			"out": "./build/{{version}}/{{name}}.js"
+		},
+		{
+			"command": "copy",
+			"type": "js",
+			"in": ["./build/{{version}}/{{name}}.js"],
+			"out": ["./demo/{{name}}.js"]
+		},
+		{
+			"command": "mini",
+			"type": "js",
+			"in": ["./build/{{version}}/{{name}}.js"],
+			"out": ["./build/{{name}}.js"]
+		}
+
+	],
+	"files_modules": {
+		"js": {
+			"./modules/modes/javascript": "latte_dom/c/commands/editor/ace/editor/mode"
+		}
+	}
+}
